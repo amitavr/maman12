@@ -147,7 +147,7 @@ public class Time1 {
     public Time1 addMinutes(int num) {
         int newTimeInMinutes = (_hour * MINUTES_IN_HOUR + _minute + num) % MINUTES_IN_DAY;
         if (newTimeInMinutes < MINIMUM_VALUE) newTimeInMinutes = MINUTES_IN_DAY + newTimeInMinutes;
-        return new Time1(newTimeInMinutes / 60, newTimeInMinutes % 60);
+        return new Time1(newTimeInMinutes / MINUTES_IN_HOUR, newTimeInMinutes % MINUTES_IN_HOUR);
     }
 
 }
