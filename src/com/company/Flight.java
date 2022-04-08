@@ -252,6 +252,6 @@ public class Flight {
      * @return True if this flight arrives before the received flight.
      */
     public boolean landsEarlier(Flight other) {
-        return (_departure.minFromMidnight() + _flightDuration < other._departure.minFromMidnight() + other._flightDuration);
+        return (_departure.addMinutes(_flightDuration).before(other._departure.addMinutes(other._flightDuration)));
     }
 }
