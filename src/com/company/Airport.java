@@ -24,9 +24,9 @@ public class Airport {
      * @return True if flight is added otherwise, false.
      */
     public boolean addFlight(Flight flight) {
-        if (_noOfFlights == MAX_FLIGHTS) // if flight schedule is empty.
+        if (_noOfFlights == MAX_FLIGHTS) // if flight schedule is empty. // TODO: flight is full
             return false;
-        if (!flight.getOrigin().equals(_city) && !flight.getDestination().equals(_city)) // if neither origin/destination equal to airport city
+        if (!flight.getOrigin().equals(_city) && !flight.getDestination().equals(_city)) // if neither origin/destination equal to airport city TODO: this is strange
             return false;
         _flightSchedule[_noOfFlights] = new Flight(flight);
         _noOfFlights++;
@@ -60,13 +60,13 @@ public class Airport {
         for (int i = 0; i < _noOfFlights; i++) {
             if (_flightSchedule[i].getOrigin().equals(origin))
                 if (_flightSchedule[i].getDeparture().before(first)) {
-                    first = new Time1(_flightSchedule[i].getDeparture());
+                    first = new Time1(_flightSchedule[i].getDeparture());  /why do you do new 
                     cityIsFound = true;
                 }
 
         }
         if (!cityIsFound) return null;
-        else return new Time1(first);
+        else return new Time1(first); //Ishai- why not return first
     }
 
     /**
@@ -112,7 +112,7 @@ public class Airport {
         boolean flag = false;
         int j = 0;
         for (int i = 0; i < _noOfFlights; i++) {
-            for (j = 0; j < destinations.length; j++) {
+            for (j = 0; j < destinations.length; j++) {//you can run to _noOfFlights it is more efficent
 
                 //System.out.println(destinations[j]);
 
